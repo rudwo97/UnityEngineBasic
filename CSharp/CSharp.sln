@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FirstProgram", "FirstProgra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Variable", "Variable\Variable.csproj", "{05EEF2FD-4394-4DC7-9BED-819603A7583E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "method", "method\method.csproj", "{E82E467A-1272-4D1F-B0CD-C6A0D713089E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "method", "method\method.csproj", "{E82E467A-1272-4D1F-B0CD-C6A0D713089E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassObjectlnstance", "ClassObjectlnstance\ClassObjectlnstance.csproj", "{38471EAD-9C2E-4A62-84DE-E6A02C93EC74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassObjectinstance", "ClassObjectlnstance\ClassObjectinstance.csproj", "{38471EAD-9C2E-4A62-84DE-E6A02C93EC74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassExample", "ClassExample\ClassExample.csproj", "{C7AD101B-C813-4717-BBA8-84B300825CEC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{38471EAD-9C2E-4A62-84DE-E6A02C93EC74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38471EAD-9C2E-4A62-84DE-E6A02C93EC74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38471EAD-9C2E-4A62-84DE-E6A02C93EC74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7AD101B-C813-4717-BBA8-84B300825CEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7AD101B-C813-4717-BBA8-84B300825CEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7AD101B-C813-4717-BBA8-84B300825CEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7AD101B-C813-4717-BBA8-84B300825CEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

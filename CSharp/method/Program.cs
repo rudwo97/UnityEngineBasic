@@ -1,8 +1,8 @@
 ﻿using System;
 
 // Function : 연산을 수행할 수 있는 기능
-// Method : 객체/클래스 단위로 호출되는 Function (>멤버 함수)
-// method < Function
+// Method : 객체/클래스 단위로 호출되는 Function (⊃ 멤버 함수)
+// method ⊂ Function
 //
 // 함수 형태 3가지
 // 함수 선언, 정의, 호출
