@@ -9,16 +9,17 @@ namespace ClassExample
             Human human1 = new Human();
 
             human1.age = 100;
-            human1.SayAge();
             human1.height = 200.0f;
             human1.gender = 'm';
 
             Human human2 = new Human();
 
             human2.age = 50;
-            human2.SayAge();
             human2.height = 150.0f;
             human2.gender = 'w';
+
+            human1.SayAge();
+            human2.SayAge();
         }
     }
     class Human
