@@ -42,6 +42,9 @@ namespace Operators
             ++c; // 전위연산 // c = c + 1;
             c++; // 후위연산
 
+            c = 0;
+            Console.WriteLine(++c); // result : 1
+            Console.WriteLine(c++); // result : 0
             // 감소
             --c; // c = c - 1;
             c--;
