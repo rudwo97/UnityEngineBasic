@@ -41,7 +41,7 @@ namespace LoopStatements
             // 
             // }
 
-            for (int i = 0; i < arr.Length; i += 2)
+            for (int i = 0; i < arr.Length; i++)
             {
                 arr[i] = i;
             }
