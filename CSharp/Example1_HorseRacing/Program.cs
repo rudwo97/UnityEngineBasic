@@ -43,6 +43,7 @@ namespace Example1_HorseRacing
             Horse[] horses = new Horse[5];
             Horse[] horsesFinished = new Horse[5];
             int grade = 0;
+            int sec = 0;
 
             for (int i = 0; i < horses.Length; i++)
             {
@@ -90,7 +91,7 @@ namespace Example1_HorseRacing
                 
                 Thread.Sleep(1000);
                 sec++;
-                Console.WriteLine($"=============================== {sec} 경과 ===================================);
+                Console.WriteLine($"=============================== {sec} 경과 ===================================");
             }
 
             Console.WriteLine("======================= 경주 끝 ===============================");
