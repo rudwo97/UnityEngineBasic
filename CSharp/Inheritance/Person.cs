@@ -6,11 +6,23 @@ using System.Threading.Tasks;
 
 namespace Inheritance
 {
+
     internal class Person : IAttackable
     {
-        public string Name { get; set; }
-        public int PhoneNumber { get; set; }
-        public string EmailAddress { get; set; }
+        private string _name;
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+            private set
+            {
+                _name = value;
+            }
+        }
+        public int PhoneNumber { get; private set; }
+        public string EmailAddress { get; private set; }
 
         public Person(string name, int phoneNumber, string emailAddress)
         {

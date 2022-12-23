@@ -14,9 +14,6 @@ namespace Inheritance
     // 다중상속이 가능함.
     internal interface IAttackable
     {
-        void Attack()
-        {
-            void Attack();
-        }
+        void Attack();
     }
 }

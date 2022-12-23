@@ -36,6 +36,7 @@ namespace Inheritance
         {
         }
 
+
         public void TakeSeminars(string[] seminars)
         {
             _seminarsTaken = seminars;

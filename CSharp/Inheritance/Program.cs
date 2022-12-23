@@ -6,9 +6,9 @@ namespace Inheritance
     {
         static void Main(string[] args)
         {
-            Person person = new Person("아무개", 01012341234, "B@AC.com");
-            Student student = new Student("학생1", 01043214321, "A@BC.com");
-            Professor professor = new Professor("교수", 01011112222, "C@AB.com");
+            Person person = new Person("아무개", 01012341234, "A@BC1.com");
+            Student student = new Student("학생1", 01043214321, "A@BC2.com");
+            Professor professor = new Professor("교수", 01011112222, "A@BC3.com");
 
             person.PurchaseParkingPass();
             student.PurchaseParkingPass();
@@ -43,6 +43,9 @@ namespace Inheritance
             {
                 attackables[i].Attack();
             }
+
+            Animal animal = cat;
+            animal.Attack();
 
 
         }
