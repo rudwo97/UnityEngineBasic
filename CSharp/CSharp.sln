@@ -35,7 +35,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicArray", "DynamicArra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinkedList", "LinkedList\LinkedList.csproj", "{1527D579-4D61-4176-871E-4122E9C2AC6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hashtable", "Hashtable\Hashtable.csproj", "{E044DFD7-9AFA-4EF0-904C-BF1140FA8AA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hashtable", "Hashtable\Hashtable.csproj", "{E044DFD7-9AFA-4EF0-904C-BF1140FA8AA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTree", "BinaryTree\BinaryTree.csproj", "{1A44FC9A-F478-4691-843F-9132AC2A7728}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,6 +113,10 @@ Global
 		{E044DFD7-9AFA-4EF0-904C-BF1140FA8AA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E044DFD7-9AFA-4EF0-904C-BF1140FA8AA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E044DFD7-9AFA-4EF0-904C-BF1140FA8AA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A44FC9A-F478-4691-843F-9132AC2A7728}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A44FC9A-F478-4691-843F-9132AC2A7728}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A44FC9A-F478-4691-843F-9132AC2A7728}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A44FC9A-F478-4691-843F-9132AC2A7728}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -129,39 +129,45 @@ namespace LinkedList
             _tmp1 = _last;
             while (_tmp1 != null)
             {
-                if (true)
-                {
+                if (Comparer<T>.Default.Compare(_tmp1.Value, value) == 0)
+                    return _tmp1;
 
-                }
+                _tmp1 = _tmp1.Prev;
             }
             return null;
         }
-        public bool Remove(T value)
+        public bool Remove(Node<T> node)
         {
-            _tmp1 = Find(value);
 
-            if (_tmp1 == null)
+            if (node == null)
             {
-            return false;
+                return false;
             }
             else
             {
-                if (_tmp1.Prev != null)
-                    _tmp1.Prev.Next = _tmp1.Next;
-                if (_tmp1.Next != null)
-                    _tmp1.Next.Prev = _tmp1.Prev;
+                if (node.Prev != null)
+                    node.Prev.Next = node.Next;
+                else
+                {
+                    _first = node.Next;
+                }
+                if (node.Next != null)
+                    node.Next.Prev = node.Prev;
+                else
+                {
+                    _last = node.Prev;
+                }
 
-                _tmp1.Next = null; 
-                _tmp1.Prev = null;
-                _tmp1 = null;
                 return true;
             }
         }
-
+        public bool Remove(T value)
+        {
+            return Remove(Find(value));
+        }
         public bool RemoveLast(T value)
         {
-            return false;
+            return Remove(FindLast(value));
         }
-            
     }
 }
