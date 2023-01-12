@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+
 namespace Collections
 {
     internal class Program
@@ -9,11 +11,11 @@ namespace Collections
         {
             // System.Collections
             // .net 제공 자료구조 클래스 및 인터페이스
-            //==============================================================
+            //===============================================================
 
             // ArrayList
             // object 타입 동적배열
-            //==============================================================
+            //---------------------------------------------------------
             ArrayList arrayList = new ArrayList();
             arrayList.Add("철수");
             arrayList.Add(123);
@@ -22,20 +24,20 @@ namespace Collections
             Console.WriteLine(arrayList[arrayList.IndexOf(123)]);
 
             // Hashtable
-            // ovject 타입 해쉬테이블
-            //---------------------------------------------------------------
+            // object 타입 해쉬테이블
+            //---------------------------------------------------------
             Hashtable hashtable = new Hashtable();
             hashtable.Add("철수", 90);
             hashtable["철수"] = 80;
             hashtable.Remove("철수");
 
             // System.Collections.Generic
-            // .net 제공 자료구조 클래스 및 인터페이스
-            //==============================================================
+            // .net 제공 자료구조 제네릭 클래스 및 인터페이스
+            //===============================================================
 
-            // List<T>
+            // List<T> 
             // 제네릭 동적 배열
-            //---------------------------------------------------------------
+            //----------------------------------------------------------
             List<int> list = new List<int>();
             list.Add(3);
             list.Find(x => x == 3);
@@ -44,29 +46,41 @@ namespace Collections
             {
                 Console.WriteLine(list[i]);
             }
+            // foreach 문
+            // IEnumerable 을 iterating 하기위한 구문 
+            // (IEnumerable 의 모든 아이템들을 순회하는 구문)
+            foreach (int item in list)
+            {
+                Console.WriteLine(item);
+            }
 
             // LinkedList<T>
-            // 제네릭 연결리스트
-            //---------------------------------------------------------------
-            LinkedList<float>linkedLisk = new LinkedList<float>();
-            linkedLisk.AddLast(3.0f);
-            linkedLisk.AddBefore(linkedLisk.Find(3.0f), 4.0f);
-            linkedLisk.Remove(4.0f);
-            Console.WriteLine(linkedLisk.First.Value);
-            linkedLisk.Contains(5.0f);
+            // 제네릭 연결 리스트
+            //----------------------------------------------------------
+            LinkedList<float> linkedList = new LinkedList<float>();
+            linkedList.AddLast(3.0f);
+            linkedList.AddBefore(linkedList.Find(3.0f), 4.0f);
+            linkedList.Remove(4.0f);
+            Console.WriteLine(linkedList.First.Value);
+            linkedList.Contains(5.0f);
 
-            LinkedListNode<float> node = linkedLisk.First;
+            LinkedListNode<float> node = linkedList.First;
             while (node != null)
             {
                 Console.WriteLine(node.Value);
                 node = node.Next;
             }
 
-            // Dictionary<Tkey, TValue>
+            foreach (float item in linkedList)
+            {
+                Console.WriteLine(item);
+            }        
+
+            // Dictionary<TKey, TValue>
             // 제네릭 해시 테이블
-            //---------------------------------------------------------------
-            Dictionary<int, string>dictionary = new Dictionary<int, string>();
-            dictionary.Add(1, "철수");
+            //----------------------------------------------------------
+            Dictionary<int, string> dictionary = new Dictionary<int, string>();
+            dictionary.Add(5, "철수");
             dictionary[1] = "영희";
             string value;
             if (dictionary.TryGetValue(2, out value))
@@ -82,7 +96,11 @@ namespace Collections
             {
 
             }
-
+            foreach (KeyValuePair<int, string> item in dictionary)
+            {
+                Console.WriteLine(item.Key);
+                Console.WriteLine(item.Value);
+            }
         }
     }
 }
