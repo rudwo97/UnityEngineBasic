@@ -9,9 +9,7 @@ namespace SortAlgorithms
 {
     internal static class SortAlgorithms
     {
-       
-
-
+        #region Bubble Sort
         /// <summary>
         /// 거품 정렬
         /// 바로뒤의 요소가 현재요소보다 작으면 스왑 
@@ -33,7 +31,9 @@ namespace SortAlgorithms
                 }
             }
         }
+        #endregion
 
+        #region Selection Sort
         /// <summary>
         /// 선택 정렬
         /// 현재의 바로뒤부터 끝까지 중에서 가장 작은 요소를 찾아서 스왑
@@ -58,7 +58,9 @@ namespace SortAlgorithms
                 Swap(ref arr[i], ref arr[min]);
             }
         }
+        #endregion
 
+        #region Insertion Sort
         /// <summary>
         /// 삽입 정렬
         /// 현재위치보다 이전 위치들중에서 더 큰값이 있으면 더 큰값으로 현재 위치에 덮어쓰고 
@@ -82,8 +84,7 @@ namespace SortAlgorithms
                 arr[j + 1] = key;
             }
         }
-
-        
+        #endregion
 
         #region Merge Sort
         /// <summary>
@@ -94,15 +95,14 @@ namespace SortAlgorithms
         /// <param name="arr"></param>
         public static void MergeSort(int[] arr)
         {
-            MergeSort (arr, 0, arr.Length - 1);
+            MergeSort(arr, 0, arr.Length - 1);
         }
 
         public static void MergeSort(int[] arr, int start, int end)
         {
             if (start < end)
             {
-                int mid = (start + end) / 2;
-
+                int mid = end + (start - end) / 2 - 1; // overflow 방지용  == (start + end) / 2
                 MergeSort(arr, start, mid);
                 MergeSort(arr, mid + 1, end);
 
@@ -120,7 +120,7 @@ namespace SortAlgorithms
             int part2 = mid + 1;
             int index = start;
 
-            // part1 과 part2 비교해서 정렬하면서 채워넣음.
+            // part1 과 part2 비교해서 정렬하면서 채워넣음. 
             while (part1 <= mid && part2 <= end)
             {
                 if (tmp[part1] <= tmp[part2])
@@ -133,28 +133,43 @@ namespace SortAlgorithms
                 }
             }
 
-            // 남은 part1 들을 index 위치 뒤에 쭉 이어 붙여준다.
-            // 정복이 끝나고 남은 part2는 원본 배열 그대로 남아있으면 타당한 위치기때문에 따로 신경쓸 필요 없다.
-            for (int i = 0; i < mid - part1; i++)
+            // 남은 Part1 들을 index 위치 뒤에 쭉 이어 붙여준다. 
+            // 정복이 끝나고 남은 Part2는 원본 배열 그대로 남아있으면 타당한 위치기때문에 따로 신경쓸 필요 없다.
+            for (int i = 0; i <= mid - part1; i++)
             {
                 arr[index + i] = tmp[part1 + i];
             }
         }
+
         #endregion
 
         #region Quick Sort
+        /// <summary>
+        /// 퀵 정렬
+        /// O(N^2)
+        /// θ(NLogN)
+        /// Unstable
+        /// </summary>
+        /// <param name="arr"></param>
+
+        public static void QuickSort(int[] arr)
+        {
+            QuickSort(arr, 0, arr.Length - 1);
+        }
 
         public static void QuickSort(int[] arr, int start, int end)
         {
             if (start < end)
             {
                 int p = Partition(arr, start, end);
+                QuickSort(arr, start, p - 1);
+                QuickSort(arr, p + 1, end);
             }
         }
 
         private static int Partition(int[] arr, int start, int end)
         {
-            int pivot = arr[end + (start - end) / 2 - 1];
+            int pivot = arr[end + (start - end) / 2];
 
             while (true)
             {
@@ -170,10 +185,102 @@ namespace SortAlgorithms
                     return end; // returnm pivot index
                 }
             }
-
         }
 
+        #endregion
 
+        #region Heap Sort
+        /// <summary>
+        /// Max - 힙 정렬
+        /// SIFT-UP Heapfiy 시 O(NogN)
+        /// SIFT_DOWN Healpfiy 시 O(N^2)
+        /// Unstable
+        /// </summary>
+        /// <param name="arr"></param>
+        public static void HeapSort(int[] arr)
+        {
+            // Max-힙구조로 변환 (정렬하면서)
+            //HeapifyTopDown(arr);
+            HeapiFyBottonup(arr);
+
+            // 원래 구조로 변환
+            InverseHeapify(arr);
+        }
+        // O(NLogN)
+        public static void HeapifyTopDown(int[] arr)
+        {
+            int end = 1;
+            while (end < arr.Length)
+            {
+                SIFT_Up(arr, 0, end++);
+            }
+        }
+
+        // O(N^2)
+        public static void HeapiFyBottonup(int[] arr)
+        {
+            int end = arr.Length - 1;
+            int current = end;
+
+            while (current >= 0)
+            {
+                SIFT_Down(arr, end, current--);
+            }
+        }
+
+        public static void InverseHeapify(int[] arr)
+        {
+            int end = arr.Length - 1;
+            while (end > 0)
+            {
+                Swap(ref arr[0], ref arr[end]);
+                end--; // 마지막 아이템 고정
+                SIFT_Down(arr, end, 1);
+            }
+        }
+        // O(LogN)
+        public static void SIFT_Up(int[] arr, int root, int current)
+        {
+            int parent = (current - 1) / 2;
+            while (current > root)
+            {
+                if (arr[current] > arr[parent])
+                {
+                    Swap(ref arr[current], ref arr[parent]);
+                    current = parent;
+                    parent = (current - 1) / 2;
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+        // O(N)
+        public static void SIFT_Down(int[] arr, int end, int current)
+        {
+            int parent = (current - 1) / 2;
+
+            while (current <= end)
+            {
+                // 오른쪽 자식이 더 크면 오른쪽으로 스왑
+                if (current + 1 <= end &&
+                    arr[current] < arr[current + 1])
+                        current++;
+
+                if (arr[current] > arr[parent])
+                {
+                    Swap(ref arr[current], ref arr[parent]);
+                    parent = current;
+                    current = parent * 2 + 1; // 왼쪽자식으로감
+                }
+                else
+                {
+                    break;
+                }
+
+            }
+        }
 
         #endregion
 
