@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace Collections
 {
@@ -46,6 +45,7 @@ namespace Collections
             {
                 Console.WriteLine(list[i]);
             }
+
             // foreach 문
             // IEnumerable 을 iterating 하기위한 구문 
             // (IEnumerable 의 모든 아이템들을 순회하는 구문)
@@ -53,7 +53,6 @@ namespace Collections
             {
                 Console.WriteLine(item);
             }
-
             // LinkedList<T>
             // 제네릭 연결 리스트
             //----------------------------------------------------------
@@ -71,10 +70,11 @@ namespace Collections
                 node = node.Next;
             }
 
+            
             foreach (float item in linkedList)
             {
                 Console.WriteLine(item);
-            }        
+            }
 
             // Dictionary<TKey, TValue>
             // 제네릭 해시 테이블

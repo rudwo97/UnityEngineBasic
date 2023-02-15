@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -91,6 +90,7 @@ namespace SortAlgorithms
         /// 병합 정렬
         /// 요소를 최소단위까지 나눈 후에 차례대로 병합을 하면서 정렬함. (Divide and conquer)
         /// O(NLogN)
+        /// Stable
         /// </summary>
         /// <param name="arr"></param>
         public static void MergeSort(int[] arr)
@@ -151,7 +151,6 @@ namespace SortAlgorithms
         /// Unstable
         /// </summary>
         /// <param name="arr"></param>
-
         public static void QuickSort(int[] arr)
         {
             QuickSort(arr, 0, arr.Length - 1);
@@ -192,20 +191,21 @@ namespace SortAlgorithms
         #region Heap Sort
         /// <summary>
         /// Max - 힙 정렬
-        /// SIFT-UP Heapfiy 시 O(NogN)
+        /// SIFT-UP Heapfiy 시 O(NLogN)
         /// SIFT_DOWN Healpfiy 시 O(N^2)
         /// Unstable
         /// </summary>
         /// <param name="arr"></param>
         public static void HeapSort(int[] arr)
         {
-            // Max-힙구조로 변환 (정렬하면서)
-            //HeapifyTopDown(arr);
-            HeapiFyBottonup(arr);
+            //Max-힙구조로 변환 (정렬하면서)
+            HeapifyTopDown(arr);
+            //HeapifyBottonUp(arr);
 
-            // 원래 구조로 변환
+            //원래 구조로 변환
             InverseHeapify(arr);
         }
+
         // O(NLogN)
         public static void HeapifyTopDown(int[] arr)
         {
@@ -217,7 +217,7 @@ namespace SortAlgorithms
         }
 
         // O(N^2)
-        public static void HeapiFyBottonup(int[] arr)
+        public static void HeapifyBottonUp(int[] arr)
         {
             int end = arr.Length - 1;
             int current = end;
@@ -238,6 +238,7 @@ namespace SortAlgorithms
                 SIFT_Down(arr, end, 1);
             }
         }
+
         // O(LogN)
         public static void SIFT_Up(int[] arr, int root, int current)
         {
@@ -256,6 +257,7 @@ namespace SortAlgorithms
                 }
             }
         }
+
         // O(N)
         public static void SIFT_Down(int[] arr, int end, int current)
         {
@@ -266,7 +268,7 @@ namespace SortAlgorithms
                 // 오른쪽 자식이 더 크면 오른쪽으로 스왑
                 if (current + 1 <= end &&
                     arr[current] < arr[current + 1])
-                        current++;
+                    current++;
 
                 if (arr[current] > arr[parent])
                 {
@@ -278,7 +280,6 @@ namespace SortAlgorithms
                 {
                     break;
                 }
-
             }
         }
 

@@ -9,7 +9,7 @@ namespace IfStatement
         static bool condition3 = false;
 
         static void Main(string[] args)
-        {
+        {            
             if (condition1)
             {
                 Console.WriteLine("조건 1이 참이다");
@@ -21,7 +21,7 @@ namespace IfStatement
             else
             {
                 Console.WriteLine("조건 1, 2 모두 거짓이다");
-            }
+            }            
         }
     }
 }

@@ -25,12 +25,12 @@ namespace Delegate
         //public delegate void HPChangeHandler(float ratio);
         //public event HPChangeHandler OnHPChange;
         public event Action<float> OnHPChange;
-        // event 한정자 : 해당 대리자의 호출을 선언된 클래스로 제한. 
+        // event 한정자 : 해당 대리자의 호출을 선언된 클래스로 제한.
         // 외부 클래스에서는 이 대리자에 += (구독) -= (구독취소) 만 가능하다.
+
         public Monster()
         {
             hp = _hpMax;
         }
-       
     }
 }

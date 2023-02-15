@@ -14,9 +14,10 @@ namespace BinaryTree
 
         public Node(T value)
         {
-            value = value;
+            Value = value;
         }
     }
+
     internal class MyBinaryTree<T>
     {
         public Node<T> Root
@@ -28,6 +29,7 @@ namespace BinaryTree
         }
         private Node<T> _root, _tmp1, _tmp2, _tmp3, _tmp4;
 
+        // 삽입 알고리즘
         // O(LogN)
         public void Add(T item)
         {
@@ -64,7 +66,7 @@ namespace BinaryTree
                     }
                     else
                     {
-                        throw new InvalidOperationException($"[MyBinaryTree] : {item} 은 이미 존재 합니다.중복 허용하지않음.");
+                        throw new InvalidOperationException($"[MyBinaryTree] : {item} 은 이미 존재 합니다. 중복 허용하지않음.");
                     }
                 }
             }
@@ -81,7 +83,7 @@ namespace BinaryTree
             _tmp1 = _root;
             while (_tmp1 != null)
             {
-                // 작은지 ?
+                // 작은지 ? 
                 if (Comparer<T>.Default.Compare(item, _tmp1.Value) < 0)
                     _tmp1 = _tmp1.Left;
                 // 큰지 ?
@@ -95,10 +97,10 @@ namespace BinaryTree
         }
 
         // 삭제 알고리즘
-        // 삭제시 밸런싱 방법 :
+        // 삭제시 밸런싱 방법 : 
         // 삭제한 노드의 오른쪽자식의 가장왼쪽으로 leaf를 탐색하고
-        // 더이상 왼쪽이 없더라도 오른쪽이 있으면 또 오른쪽 자식으로가서 가장 왼쪽 leaf 를 탐색하는것을 반복하고
-        // 마지막으로 찾은 leaf 노드를 원래 삭제하려던 노드의 오른쪽 자식위치에다가 놓고
+        // 더이상 왼쪽이 없더라도 오른쪽이 있으면 또 오른쪽자식으로가서 가장 왼쪽 leaf 를 탐색하는것을 반복한 후
+        // 마지막으로 찾은 leaf 노드를 원래 삭제하려던 노드의 오른쪽 자식위치에다가 놓고 
         // 원래 삭제하려던 노드의 오른쪽 자식노드는 원래 삭제하려던 노드 위치에다가 놓는다.
         public bool Remove(T item)
         {
@@ -192,7 +194,7 @@ namespace BinaryTree
 
                         if (done)
                             break;
-                    }
+                    }                                        
 
                     // tmp1 자리에 tmp3 대체
                     if (dir < 0)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace Delegate
 
         public event Action<T> OnItemAdded;
         public event Action<T> OnItemRemoved;
+
 
         public void Add(T item)
         {

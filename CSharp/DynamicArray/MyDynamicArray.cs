@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace DynamicArray
 {
     internal class MyDynamicArray
-    {
-        // const 키워드
-        // 상수 키워드, const 키워드가 붙은 변수는
+    {        
+        // const 키워드 
+        // 상수 키워드. const 키워드가 붙은 변수는 
         // 초기화만 가능하며, 상수처럼 사용된다.
         private const int DEFAULT_SIZE = 1;
         private int[] _data = new int[DEFAULT_SIZE];
@@ -21,22 +21,21 @@ namespace DynamicArray
                 return _data.Length;
             }
         }
-
         public int this[int index]
         {
             get
             {
                 return _data[index];
             }
-            set 
+            set
             {
-                _data[index] = value;
+                _data[index] = value;                
             }
         }
 
         // 삽입 알고리즘
         // 일반적으로 O(1)
-        // 단, Capacity가 모자를때는 O(N)
+        // 단, Capacity가 모자랄때는 O(N)
         public void Add(int item)
         {
             if (Count >= Capacity)
@@ -61,8 +60,10 @@ namespace DynamicArray
                 if (_data[i] == target)
                     return true;
             }
+
             return false;
         }
+
         public int Find(Predicate<int> match)
         {
             for (int i = 0; i < Count; i++)
@@ -99,6 +100,8 @@ namespace DynamicArray
             return index >= 0;
         }
 
+        // 인덱스 삭제 알고리즘
+        // O(N)
         public bool RemoveAt(int index)
         {
             if (index > Count - 1)

@@ -21,27 +21,27 @@ namespace Delegate
 
         static void Main(string[] args)
         {
-            Monster monster = new Monster(); 
+            Monster monster = new Monster();
             MonsterHPBarUI monsterHPBarUI = new MonsterHPBarUI(monster);
-
+            
             
             while (true)
             {
             }
 
-            //===================================================================
+            //===============================================================
             int result = 0;
             Sum(1, 2);
             Sub(1, 2);
             Div(1, 2);
             Mul(1, 2);
 
-            op += Sum;
+            op += Sum;   
             op += Sub;
             op += Div;
             op += Mul;
 
-            op(1, 2);
+            op(1, 2); 
             op.Invoke(1, 2); // 일반호출과 Invoke호출의 차이는 멀티쓰레드환경에서 레이스컨디션을 방지하기위한 함수
             op?.Invoke(1, 2); // ? : null check 연산자. null 이면 호출안함
 
